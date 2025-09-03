@@ -1,6 +1,14 @@
 import React from 'react';
 import Home from "@/app/page";
 import Link from "next/link";
+import {  Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,} from "@/components/ui/menubar";
+
 const links=[
     {
         id:1,
@@ -38,11 +46,12 @@ function Navebar(props) {
         <>
         <div>
             <Link href={"/"}>MyHome</Link>
-            <div>
-                {links.map((link)=>(
-                    <Link href={link.url}>{link.title}</Link>
-                ))}
-            </div>
+            <Menubar>
+                <MenubarMenu>
+                    <MenubarTrigger>File</MenubarTrigger>
+
+                </MenubarMenu>
+            </Menubar>
         </div>
         </>
     );
