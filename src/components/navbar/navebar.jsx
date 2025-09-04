@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Home from "@/app/page";
 import Link from "next/link";
@@ -8,6 +9,7 @@ import {  Menubar,
     MenubarSeparator,
     MenubarShortcut,
     MenubarTrigger,} from "@/components/ui/menubar";
+import {Button} from "@/components/ui/button";
 
 const links=[
     {
@@ -44,11 +46,17 @@ const links=[
 function Navebar(props) {
     return (
         <>
-        <div>
+        <div className={"flex justify-between items-center p-4"}>
             <Link href={"/"}>MyHome</Link>
             <Menubar>
                 <MenubarMenu>
-                    <MenubarTrigger>File</MenubarTrigger>
+                    {links.map((link)=>(
+                        <MenubarTrigger key={link.id}>
+                            <Link className={"flex flex-row gap-5"}  href={link.url}>{link.title}</Link>
+                        </MenubarTrigger>
+                    ))}
+
+<Button onClick={()=>console.log("Logout")} variant={"warning"} className={"bg-red-500 text-white"}>Login</Button>
 
                 </MenubarMenu>
             </Menubar>
